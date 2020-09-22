@@ -1,0 +1,14 @@
+.container-fluid {
+    height: 150vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('../../assets/charts_background.jpeg');;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+#carousel-container {
+    width: 90%;
+}
+
+.col-md-3 .row {
+    color: aliceblue;
+}

@@ -1,0 +1,71 @@
+<!-- <div class="container-fluid row">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ml-5 w-100">
+
+    ? LOGO AND TITLE
+    <div class="d-flex align-items-center mr-auto">
+      <a [routerLink]="" routerLinkActive="router-link-active" class="navbar-brand">
+        <img src="../../assets/logo.jpeg" class="rounded-circle" />
+      </a>
+      <h3 style="color: red;">WAVE RSM</h3>
+    </div>
+
+    !Step 3: Toggle the value of the property when the toggler button is clicked.
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+    </button>
+
+    !Step 2: Add the ngbCollapse directive to the element below.
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse d-flex justify-content-end pr-2">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          Step 4: Close the menu when a link is clicked.
+          <a class="nav-link" (click)="isMenuCollapsed = true">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="isMenuCollapsed = true">About</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+</div> -->
+
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <!-- ? LOGO AND TITLE -->
+    <div class="d-flex align-items-center ">
+      <a [routerLink]="" routerLinkActive="router-link-active" class="navbar-brand">
+        <img src="../../assets/logo.jpeg" class="rounded-circle" />
+      </a>
+      <h3 style="color: red;">WAVE RSM</h3>
+    </div>
+
+    <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      &#9776;
+    </button>
+
+    <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <!-- Step 4: Close the menu when a link is clicked. -->
+          <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+</div>

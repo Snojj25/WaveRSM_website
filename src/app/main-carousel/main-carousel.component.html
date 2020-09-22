@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <app-header></app-header>
+
+    <div class="row">
+      <!-- Carousel column start-->
+      <div class="col-md-9">
+        <ngb-carousel *ngIf="images" #mainCarousel>
+        <ng-template ngbSlide *ngFor="let img of images; let i=index">
+          <div class="picsum-img-wrapper">
+            <img [src]="img" class="d-block w-100" alt="Random first slide">
+          </div>
+          <div class="carousel-caption">
+            <h3>This is label {{ i }}</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      </div>
+      <!-- Carousel column end -->
+      <!-- carousel side start -->
+      <div class="col-md-3 p-1 my-4" >
+        <div class="row justify-content-center py-3 " 
+        *ngFor="let img of images; let i=index">
+        <Button (click)= "onClick()" class="btn btn-block btn-outline-danger">label {{ i }}</Button>
+      </div>
+        <!-- <div class="row justify-content-center py-3 border border-danger">Second item</div>
+        <div class="row justify-content-center py-3 border border-danger">Third item</div>
+        <div class="row justify-content-center py-3 border border-danger">Fourth item</div> -->
+      </div>
+      <!-- carousel side end -->
+    </div>
+
+</div>
