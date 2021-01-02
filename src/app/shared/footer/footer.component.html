@@ -1,0 +1,104 @@
+<!-- *  FOOTER -->
+<div class="footer" (window:resize)="onResize($event)">
+  <!-- & UPPER FOOTER -->
+  <div class="row footer-upper">
+    <!-- ? CONTACT -->
+    <div class="col-lg-5 contact">
+      <h1 class="pb-1 m-0"> Don't miss out! </h1>
+      <p class="pb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eum, animi sequi sed aliquam id?
+      </p>
+      <form>
+        <div class="form-group">
+          <label for="email">EMAIL ADRESS</label>
+          <input type="text" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <button class="btn btn-block btn-dark"> Sign Up </button>
+      </form>
+      <p class="pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta vel repellat est facere facilis,
+        ipsa modi
+        fuga dolore, nam nulla quibusdam enim beatae quas eius.</p>
+      <div class="row icons">
+        <i appHoverable [styles]="['fa-2x', 'testClass']" class="fab fa-facebook fa-lg"></i>
+        <span></span>
+        <i appHoverable [styles]="['fa-2x', 'testClass']" class="fab fa-instagram fa-lg"></i>
+        <span></span>
+        <i appHoverable [styles]="['fa-2x', 'testClass']" class="fab fa-snapchat fa-lg"></i>
+        <span></span>
+        <i appHoverable [styles]="['fa-2x', 'testClass']" class="fab fa-youtube fa-lg"></i>
+      </div>
+    </div>
+    <!-- ? OTHER -->
+    <div *ngIf="srcWidth >= 992" class="col-lg-7 other">
+      <div class="row pl-4 pr-4">
+        <div class="col-xl-4 col-lg-6 mt-md-4 pt-md-4">
+          <h1>Company</h1>
+          <h3>About</h3>
+          <h3>Contact Us</h3>
+          <h3>Privacy Policy</h3>
+        </div>
+        <div class="col-xl-4 col-lg-6 mt-md-4 pt-md-4">
+          <h1>Customer service</h1>
+          <h3>About</h3>
+          <h3>Contact Us</h3>
+          <h3>Privacy Policy</h3>
+        </div>
+        <div class="col-xl-4 col-lg-6 mt-md-4 pt-md-4">
+          <h1>More about</h1>
+          <h3>About</h3>
+          <h3>Contact Us</h3>
+          <h3>Privacy Policy</h3>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="srcWidth < 992" class="col-12 other">
+      <div class="row p-0">
+        <div class="col-4 pt-4 pl-4 p-0 justify-content-center">
+          <h2 class="ml-3 my-sm-2 p-sm-0">Company</h2>
+          <h4 class="ml-3 my-sm-2 p-sm-0">About</h4>
+          <h4 class="ml-3 my-sm-2 p-sm-0">Contact Us</h4>
+          <h4 class="ml-3 my-sm-2 p-sm-0">Privacy Policy</h4>
+        </div>
+        <div class="col-4 pt-4 p-0  justify-content-center">
+          <h2 class="ml-3 m-sm-2 p-sm-0">Customer service</h2>
+          <h4 class="ml-3 m-sm-2 p-sm-0">About</h4>
+          <h4 class="ml-3 m-sm-2 p-sm-0">Contact Us</h4>
+          <h4 class="ml-3 m-sm-2 p-sm-0">Privacy Policy</h4>
+        </div>
+        <div class="col-4 pt-4 p-0  justify-content-center">
+          <h2 class="ml-5 m-sm-2 p-sm-0">More about</h2>
+          <h4 class="ml-5 m-sm-2 p-sm-0">About</h4>
+          <h4 class="ml-5 m-sm-2 p-sm-0">Contact Us</h4>
+          <h4 class="ml-5 m-sm-2 p-sm-0">Privacy Policy</h4>
+        </div>
+      </div> 
+    </div>
+    <!-- ============= -->
+  </div>
+  <!-- ! FOOTER BOTTOM -->
+  <div class="row footer-bottom">
+    <!-- FOOTER BOTTOM 1 -->
+    <div class="container-fluid footer-bottom1 border pt-1">
+      <div class="row pl-4 ml-lg-4 px-md-3 justify-content-center">
+        <div class="col-sm-3 col-6 p-sm-0 m-sm-0 pl-5">
+          <h3 appHoverable class="p-0 m-0">Privacy Policy</h3>
+        </div>
+        <div class="col-sm-3 col-6 p-sm-0 m-sm-0 pl-5">
+          <h3 appHoverable class="p-0 m-0">Terms Of Service</h3>
+        </div>
+        <div class="col-sm-3 col-6 pl-sm-3 p-sm-0 m-sm-0 pl-5">
+          <h3 appHoverable class="p-0 m-0">Contact Us</h3>
+        </div>
+        <div class="col-sm-3 col-6 p-sm-0 m-sm-0 pl-5">
+          <h3 appHoverable class="p-0 m-0">Cookie Settings</h3>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER BOTTOM 2 -->
+    <div class="col-12 footer-bottom2">
+      <p class="px-sm-5 px-3">his site is intended for US consumers. Cookies and related technology are used for advertising. To learn
+        more, visit AdChoices and our Privacy Policy.
+
+        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+
+
+div.body {
+
+  @media (min-width: 992px) {
+    height: 410vh;
+  }
+  @media (max-width: 992px) {
+    height: 425vh
+  }
+  // @media (max-width: 992px) {
+  //   height: 430vh
+  // }
+  // @media (max-width: 768px) {
+  //   height: 435vh;
+  // }
+  // height: 410vh;
+
+  // * FIRST SECTION
+  .first-section {
+    height: 100vh;
+    // width: 100vw;
+
+    background-image: url("../../../assets/stock_photos/stock_image1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .first-card {
+      color: aqua;
+      // margin-bottom: 100vh;
+    }
+
+    position: relative;
+    z-index: 1;
+  }
+
+  // & SECOND SECTION
+  .second-section {
+    height: 110vh;
+    width: 100vw;
+
+    background-image: url("../../../assets/stock_photos/stock_image4.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .second-card {
+      color: aqua;
+      // margin-bottom: 100vh;
+    }
+
+    position: relative;
+    z-index: 1;
+  }
+
+  // ! THIRD SECTION
+  .third-section {
+    height: 120vh;
+    max-width: 100vw;
+
+    background-image: url("../../../assets/stock_photos/stock_image6.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .third-card {
+      color: aqua;
+    }
+
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  app-footer {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+  }
+
+}

@@ -1,0 +1,71 @@
+// #navContainer {
+  div.container-fluid {
+
+    nav.navbar {
+      background-color: transparent !important;
+      height: 15vh;
+
+      // ? LOGO AND TITLE
+      a.navbar-brand {
+
+        span {
+          font-weight: bold;
+          font-size: xx-large;
+          color: rgb(200, 200, 200);
+          transform: rotateZ(30deg) !important;
+          // transform: rotate(-50deg);
+          text-shadow: 1px 1px blue,
+            2px 2px blue,
+            3px 3px blue,
+            4px 4px blue,
+            5px 6px blue,
+        }
+
+
+
+        img.rounded-circle {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      // ! HEADER BODY
+      button.navbar-toggler {
+        color: rgb(200, 200, 200);
+      }
+
+      ul.nav-pills {
+        li {
+          font-size: large;
+
+          i.fa {
+            color: rgb(200, 200, 200);
+          }
+
+        }
+
+        button {
+          background-color: transparent;
+          border: none;
+
+          i.fas {
+            color: rgb(200, 200, 200);
+          }
+        }
+
+        .nav-link.active {
+          background-color: blue;
+          // color: rgb(200, 200, 200);
+          color: white;
+          font-weight: bold;
+        }
+
+        a.nav-link {
+          color: rgb(200, 200, 200);
+        }
+
+      }
+
+    }
+  }
+// }

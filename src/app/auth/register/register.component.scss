@@ -1,0 +1,112 @@
+div.body {
+
+  height: 100vh;
+  background: radial-gradient(ellipse at center, rgba(100,100,100, 0.1) 40%, rgba(0,0,0, 1) 100%);
+
+  div.container {
+
+    h1 {
+      color: rgb(255, 255, 140) !important;
+      font-weight: 500;
+      font-size: 3em;
+      font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
+    }
+
+    form {
+
+      .prepend {
+        background-color: black;
+        border-radius: 1em;
+
+        label {
+          color: rgb(255, 255, 140) !important;
+          font-weight: 200;
+          font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
+        }
+      }
+
+      input {
+        background-color: rgba(255, 255, 140, 1);
+        border: 3px solid black;
+        color: black;
+      }
+
+      input.ng-invalid.ng-touched {
+        border: 3px solid red;
+        color: black;
+      }
+
+      span.help-block {
+        color: red;
+        font-weight: bold;
+      }
+
+      input.ng-valid.ng-touched {
+        border: 3px solid rgb(50, 255, 50);
+        color: black;
+        background-color: white;
+      }
+
+      div.passwords.ng-touched.ng-invalid {
+        input.ng-invalid.ng-touched {
+          border: 3px solid red;
+          color: black;
+        }
+
+        input.ng-valid.ng-touched {
+          border: 3px solid red;
+          color: black;
+        }
+      }
+
+      // div.passwords.ng-touched.ng-valid {
+      //   input.ng-valid.ng-touched {
+      //     border: 3px solid rgb(50, 255, 50);
+      //     color: black;
+      //   }
+      // }
+
+      button {
+        font-weight: 200;
+        font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+      }
+
+      ::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: black;
+      }
+
+      :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: black;
+        opacity: 1;
+      }
+
+      ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: black;
+        opacity: 1;
+      }
+
+      :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: black;
+      }
+
+      ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: black;
+      }
+
+      ::placeholder {
+        /* Most modern browsers support this now. */
+        color: black;
+      }
+    }
+  }
+
+  // app-footer {
+
+  // }
+}

@@ -1,0 +1,78 @@
+<app-header [activeId]='3'></app-header>
+
+<div class="container">
+  <!-- !  TITLE ==================== -->
+  <div style="height: 3vh;"></div>
+  <!-- <div class="container"> -->
+  <div class="row">
+    <div class="col-lg-4 col-sm-2 col-0"></div>
+    <div class="col-lg-4 col-md-6 col-sm-7 col-8 mr-lg-5">
+      <h1 class="display-2 pl-5"> MY TRADES</h1>
+    </div>
+    <button (click)="onNavigate()" class="btn btn-danger ml-lg-5 mr-lg-0 mr-sm-2">STATISTICS</button>
+  </div>
+  <!-- </div> -->
+  <div style="height: 3vh;"></div>
+  <!-- !  TITLE ==================== -->
+  <div style="height: 3vh;"></div>
+
+  <div *ngIf="isLoading">
+    <h2>
+      Loading ...
+    </h2>
+  </div>
+
+  <div class="row justify-content-around">
+    <div *ngFor="let trade of trades" class="col-lg-4 col-md-6 my-3">
+      <div class="trade-container">
+        <h2 class="p-3" [ngStyle]="{'color': trade.profit >= 0 ? 'green' : 'red'}"> {{ trade.symbol }}
+          {{ trade.tradeType }} </h2>
+        <!-- DATE TIME -->
+        <div class="trade-date-title row justify-content-around">
+          <div class="col-6 pl-5">
+            Date time:
+          </div>
+          <div class="col-6 trade-date">
+            {{ getDateString( trade.dateTime ) }}
+          </div>
+        </div>
+        <!-- ENTRY PRICE -->
+        <div class="trade-text row">
+          <div class="col-6">
+            Entry:
+          </div>
+          <div class="col-6 trade-stat">
+            {{ trade.entry }}
+          </div>
+        </div>
+        <!-- EXIT PRICE -->
+        <div class="trade-text row">
+          <div class="col-6">
+            Exit:
+          </div>
+          <div class="col-6 trade-stat">
+            {{ trade.exit }}
+          </div>
+        </div>
+        <!-- LOT SIZE -->
+        <div class="trade-text row">
+          <div class="col-6">
+            Lot size:
+          </div>
+          <div class="col-6 trade-stat">
+            {{ trade.lotSize }}
+          </div>
+        </div>
+        <!-- PROFIT -->
+        <div class="profit row justify-content-center" [ngStyle]="{'color': trade.profit >= 0 ? 'green' : 'red'}">
+          Profit: {{ trade.profit }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 15vh;"></div>
+  <!-- <button (click)="onClick()">CLICK</button> -->
+
+</div>
+
+<app-footer></app-footer>

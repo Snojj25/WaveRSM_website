@@ -1,0 +1,86 @@
+div.page {
+  height: 100vh;
+  background: radial-gradient(ellipse at center, rgba(100,100,100, 0.1) 40%, rgba(24,0,50, 1) 100%);
+
+  div.container {
+    h1 {
+      color: rgb(200, 255, 255);
+      font-weight: 500;
+      font-size: 3em;
+      font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
+    }
+
+    form {
+      .prepend {
+        background-color: black;
+        border-radius: 1em;
+
+        label {
+          color: rgb(200, 255, 255) !important;
+          font-weight: 200;
+          font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
+        }
+      }
+
+      input {
+        background-color: rgb(200, 255, 255);
+        border: 3px solid black;
+      }
+
+      input.ng-invalid.ng-touched {
+        border: 3px solid red;
+        background-color: white;
+        color: black;
+      }
+
+      input.ng-valid.ng-touched {
+        border: 3px solid greenyellow;
+        color: black;
+      }
+
+      span.help-block {
+        color: red;
+        font-weight: bold;
+      }
+
+      button {
+        font-weight: 200;
+        font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
+        border: 2px solid black;
+      }
+
+
+      ::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: black;
+      }
+
+      :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: black;
+        opacity: 1;
+      }
+
+      ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: black;
+        opacity: 1;
+      }
+
+      :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: black;
+      }
+
+      ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: black;
+      }
+
+      ::placeholder {
+        /* Most modern browsers support this now. */
+        color: black;
+      }
+    }
+  }
+}

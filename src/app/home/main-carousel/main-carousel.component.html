@@ -1,0 +1,86 @@
+<div class="body">
+
+  <div class="container-fluid">
+
+    <app-header [activeId]='1'></app-header>
+
+    <!-- !  TITLE ==================== -->
+    <div style="height: 3vh;"></div>
+    <div class="row justify-content-center">
+      <h1 class="display-2"> ACTIVE TRADES</h1>
+    </div>
+    <div style="height: 3vh;"></div>
+    <!-- !  TITLE ==================== -->
+    <div class="row align-items-start mt-1 mb-0 px-2 py-5">
+      <!-- * Carousel column start-->
+      <div class="col-lg-9 px-2">
+        <ngb-carousel *ngIf="images" #mainCarousel (slide)="onSlide($event)" [showNavigationArrows]=true>
+          <ng-template ngbSlide *ngFor="let img of images; let i=index">
+            <div class="picsum-img-wrapper">
+              <img [src]="img" class="d-block w-100" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+              <h3>This is label {{ i }}</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+        <div class="container-fluid desc-container m-3 p-3">
+          <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ullam in at facere fugit quasi
+            incidunt! At corporis ea aliquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, deserunt
+            ducimus reiciendis minima sunt voluptatibus consequatur nihil dignissimos. Vero, nesciunt.</p>
+        </div>
+      </div>
+      <!-- * Carousel column end -->
+
+      <!-- ? carousel side start -->
+      <div *ngIf="srcWidth >= 992" class="col-lg-3 justify-content-center py-3 px-4 carousel-side">
+        <div class="col-lg-12 col-6 justify-content-center p-3" (mouseover)="hover=true" (mouseleave)="hover=false"
+          [ngStyle]="{cursor: hover ? 'pointer' : 'default'}" *ngFor="let img of images; let i=index">
+          <!-- Card -->
+          <mat-card (click)="onClick(i)" class="card clickable w-100">
+            <mat-card-header>
+              <mat-card-title> Title {{ i }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="picsum-img-wrapper">
+                <img [src]="img" class="d-block w-100" alt="Random first slide">
+              </div>
+              <!-- <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium perferendis ex facere delectus
+              assumenda aliquam.
+            </p> -->
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <!-- ? carousel side end -->
+    </div>
+    <!-- =========================================== -->
+    <div *ngIf="srcWidth < 992" class="row">
+      <div class="col-3 justify-content-center p-3" (mouseover)="hover=true" (mouseleave)="hover=false"
+        [ngStyle]="{cursor: hover ? 'pointer' : 'default'}" *ngFor="let img of images; let i=index">
+        <!-- Card -->
+        <mat-card (click)="onClick(i)" class="card clickable w-100">
+          <mat-card-header>
+            <mat-card-title> Title {{ i }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="picsum-img-wrapper">
+              <img [src]="img" class="d-block w-100" alt="Random first slide">
+            </div>
+            <!-- <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium perferendis ex facere delectus
+            assumenda aliquam.
+          </p> -->
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+
+  <app-footer></app-footer>
+
+</div>

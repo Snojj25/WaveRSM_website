@@ -1,0 +1,93 @@
+<div class="body">
+  <app-header [activeId]='4'></app-header>
+
+  <div class="container">
+    <!-- Extra spacing -->
+    <div style="height: 5vh;"></div>
+    <!-- ? ===========  TITLE  =========================-->
+    <div class="row">
+      <h1 class="mx-auto mb-4 text-danger">REGISTER</h1>
+      <button class="btn btn-md btn-outline-warning" (click)="onSwitchMode()">Switch mode</button>
+    </div>
+
+    <!-- !    FORM =============== -->
+    <form [formGroup]="signupForm" (ngSubmit)="onSignUp()" class="form">
+      <!--& First form input start -->
+      <div class="form-group row my-5">
+        <div class="col-lg-2 col-md-3 col-5 prepend">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-danger">Username</label>
+        </div>
+        <div class="col-lg-10 col-12">
+          <input type="text" class="form-control form-control-lg" id="Username" placeholder="Username"
+            formControlName="username">
+          <span *ngIf="!username.valid" class="help-block">
+            <span *ngIf="username.errors && username.errors.required && username.touched">Username is required</span>
+            <span *ngIf="username.errors && username.errors.usernameExists">Username alredy exists</span>
+          </span>
+        </div>
+      </div>
+      <!--& First form input end -->
+      <!--? Second form input start -->
+      <div class="form-group row my-5">
+        <div class="col-lg-2 col-md-3 col-5 prepend">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-danger">Email</label>
+        </div>
+        <div class="col-lg-10 col-12">
+          <input type="email" class="form-control form-control-lg" id="Email" placeholder="Email"
+            formControlName="email">
+          <span *ngIf="!email.valid" class="help-block">
+            <span *ngIf="email.errors && email.errors.required && email.touched">Email is required</span>
+            <span *ngIf="email.errors && email.errors.email && email.touched">Enter a valid email format</span>
+            <span *ngIf="email.errors && email.errors.emailExists">Email alredy exists</span>
+          </span>
+        </div>
+      </div>
+      <!--? Second form input end -->
+      <!-- todo  passwords -->
+      <div class="passwords" formGroupName="passwords">
+        <!--! Third form input start -->
+        <div class="form-group row my-5">
+          <div class="col-lg-2 col-md-3 col-5 prepend">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-danger">Password</label>
+          </div>
+          <div class="col-lg-10 col-12">
+            <input type="text" class="form-control form-control-lg" id="Password" placeholder="Password"
+              formControlName="password">
+            <span *ngIf="!password.valid && password.touched" class="help-block">
+              <span *ngIf="password.errors && password.errors.required">Password is required</span>
+            </span>
+          </div>
+        </div>
+        <!--! Third form input end -->
+        <!-- * Third form input start -->
+        <div class="form-group row my-5">
+          <div class="col-md-2 prepend">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-danger">Password</label>
+          </div>
+          <div class="col-lg-10 col-12">
+            <input type="text" class="form-control form-control-lg" id="confirmPassword" placeholder="Confirm Password"
+              formControlName="confirm-password">
+            <span *ngIf="!confirm_password.valid && confirm_password.touched" class="help-block">
+              <span *ngIf="confirm_password.errors && confirm_password.errors.required">Password is required</span>
+              <!-- <span *ngIf="passwords.errors.passwordMatch">Passwords don't match</span> -->
+            </span>
+            <span class="help-block" *ngIf="password.valid && confirm_password.valid">
+              <span *ngIf="passwords.errors && passwords.errors.passwordMatch">
+                Passwords don't match
+              </span>
+            </span>
+
+          </div>
+        </div>
+        <!-- * Third form input end -->
+      </div>
+      <!-- todo  passwords -->
+      <button (click)="onGoogleSignIn()">Google login</button>
+      <button [disabled]="!signupForm.valid" (mouseover)="hover=true" (mouseleave)="hover=false"
+        [ngStyle]="{backgroundColor: hover ? 'black' : 'rgba(0, 0, 0, 0.5)', color: hover ? 'rgb(255, 255, 140)' : 'rgba(255, 255, 140, 0.5)', textDecoration: !signupForm.valid ? 'line-through' : 'none'}"
+        class="btn btn-block btn-lg mb-5" type="submit">Login</button>
+    </form>
+
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+<!-- ================================ -->
+
+<div class="container">
+  <div class="row justify-content-end">
+    <form [formGroup]="symbolForm" class="form-inline">
+      <div class="form-group m-2">
+        <mat-form-field>
+          <mat-label>Symbol</mat-label>
+          <input type="text" matInput placeholder="Symbol" formControlName="symbolGroup" [matAutocomplete]="autoGroup">
+          <mat-autocomplete #autoGroup="matAutocomplete" class="bg-primary">
+            <mat-optgroup *ngFor="let group of symbolGroupOptions | async" [label]="group.name" class="text-primary">
+              <mat-option *ngFor="let name of group.children" [value]="name">
+                {{name}}
+              </mat-option>
+            </mat-optgroup>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      <!-- & ===================== -->
+      <div class="form-group m-2">
+
+        <!-- <mat-form-field appearance="" class="my-select">
+          <mat-label>Cars</mat-label>
+          <select [formControl]="modeControl" matNativeControl required>
+            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+          </select>
+        </mat-form-field> -->
+
+        <button class="btn btn-md m-2" (click)="onChangeMode()"> {{ isPhotos ? 'Videos' : 'Photos' }} </button>
+        <!-- <Button class="btn" (click)="onClick()">Click</Button> -->
+
+      </div>
+    </form>
+  </div>
+
+</div>

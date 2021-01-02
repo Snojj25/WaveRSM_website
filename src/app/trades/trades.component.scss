@@ -1,0 +1,61 @@
+
+// =========
+.container{
+
+
+  h1 {
+    color: white;
+    font-weight: 900;
+    font-size: 2.5em;
+  }
+
+  button {
+    font-size: large;
+    font-weight: 500;
+  }
+
+  .trade-container {
+    background: linear-gradient(to right, rgba(20, 30, 190, 0.8), rgba(0, 0, 0, 0.9));
+    border-radius: 25px;
+    border: 3px solid grey;
+    padding-bottom: 2%;
+  
+  
+    h2 {
+      font-weight: 900;
+      font-size: 1.6em;
+      text-align: center;
+    }
+  
+    .trade-text {
+      padding-left: 12%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+  
+      font-size: 1.5rem;
+      font-weight: 800;
+      
+      .trade-stat {
+        font-weight: 600;
+        margin-left: auto;
+      }
+    }
+    .trade-date-title {
+      font-weight: 700;
+      font-size: 1.5em;
+    }
+    .trade-date {
+      font-weight: 500;
+      font-size: large;
+    }
+    .profit{
+      padding-top: 2%;
+      padding-bottom: 2%;
+  
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+  }
+}
+
+

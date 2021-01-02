@@ -1,0 +1,154 @@
+.footer {
+
+  @media (min-width: 992px) {
+    height: 80vh;
+  }
+
+  @media (max-width: 992px) {
+    height: 100vh;
+  }
+
+  // @media (max-width: 768px) {
+  //   height: 105vh;
+  // }
+
+  // @media (max-width: 768px) {
+  //   height: 95vh;
+  // }
+  // height: 80vh;
+  background-color: black;
+  width: 100vw;
+  // overflow: hidden;
+  // position: fixed;
+  // bottom: 0px;
+  z-index: 0;
+
+
+  // ? FOOTER UPPER
+  .footer-upper {
+
+    max-width: 100vw;
+
+    .contact {
+      padding-left: 4em;
+      padding-top: 4em;
+
+      p {
+        font-weight: 500;
+        font-size: small;
+      }
+
+      form {
+        label {
+          font-weight: 500;
+          font-size: small;
+        }
+      }
+
+      .icons {
+        margin-top: 2em;
+        justify-content: center;
+
+        i.fab {
+          color: grey;
+        }
+
+        span {
+          width: 1em;
+        }
+
+        .testClass {
+          color: whitesmoke !important;
+          // height: 30px;
+        }
+
+      }
+    }
+
+    .other {
+
+      .row {
+        // padding-top: 4em;
+
+        h1 {
+          font-weight: 600;
+        }
+
+        h3 {
+          font-weight: 400;
+        }
+      }
+    }
+
+    background-color: black;
+
+    @media (min-width: 992px) {
+      height: 67vh;
+    }
+
+    @media (max-width: 992px) {
+      height: 82vh;
+    }
+
+
+  }
+
+  // ? FOOTER BOTTOM
+  .footer-bottom {
+    @media (min-width: 768px) {
+      height: 13vh;
+    }
+
+    // @media (max-width: 768px) {
+    //   height: 23vh;
+    // }
+
+    // height: 13vh;
+    max-width: 100vw;
+
+    // footer bottom 1
+    .footer-bottom1 {
+      height: 45%;
+      border: 1px solid grey;
+
+      .row {
+
+        padding-left: 10%;
+        padding-right: 10%;
+
+        .text-center {
+          text-align: center
+        }
+
+        h3 {
+          color: rgb(160, 160, 160);
+          font-weight: 600;
+        }
+      }
+
+      remove-whitespace {
+        margin: 0;
+        padding: 0;
+
+        h3 {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+
+    // footer bottom 2
+    .footer-bottom2 {
+      height: 55%;
+
+      p {
+        // margin-left: auto;
+        // margin-right: auto;
+        font-size: smaller;
+        font-weight: 400;
+        color: grey;
+        text-align: center;
+      }
+    }
+  }
+}

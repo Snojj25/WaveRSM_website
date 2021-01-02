@@ -1,0 +1,85 @@
+<!--  ==================  -->
+
+<div class="body">
+  <!--  ==================  -->
+  <div class="container-fluid pb-5 pt-1">
+
+    <app-header [activeId]='2'></app-header>
+
+    <!-- !  TITLE ==================== -->
+    <div style="height: 3vh;"></div>
+    <div class="row justify-content-center">
+      <h1 class="display-2"> POSTS </h1>
+    </div>
+    <div style="height: 3vh;"></div>
+    <!-- !  TITLE ==================== -->
+
+    <!-- ? FILTER ============================ -->
+    <app-new-filter (modeChange)="onModeEmitted($event)" (symbolFilter)="onSymbolFilter($event)"></app-new-filter>
+    <!-- ? FILTER ============================ -->
+
+    <!-- <button class="btn btn-md btn-danger" (click)="sanitizeUrl(posts[0].imgUrl)"> Test </button> -->
+
+    <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="onScroll()">
+
+      <div *ngIf="mode === 'photos'" class="row p-5 photo-scroll-container">
+        <div *ngFor="let post of posts; let i = index;" class="col-lg-6 p-3">
+          <div class="photo-post pb-4 pt-3 px-2">
+            <mat-card (click)="onNavigate(post.id, 'photos')" class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title class="ml-4">{{ post.title }} </mat-card-title>
+                <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+              </mat-card-header>
+              <div class="py-4">
+                <img class="w-100" mat-card-image src="{{ post.imgUrl }}" alt="Photo of a Shiba Inu">
+              </div>
+              <mat-card-content>
+                <p class="lead">
+                  {{ checkLength(post.description) }}
+                </p>
+              </mat-card-content>
+              <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+            </mat-card>
+          </div>
+        </div>
+      </div>
+
+      <!-- ! ///// VIDEOS /////// -->
+      <div *ngIf="mode === 'videos'" class="row p-5 video-scroll-container">
+        <div *ngFor="let post of posts; let i = index;" class="col-lg-6 p-2">
+          <div class="video-post pb-4 pt-3 px-2">
+            <div class="video-header pl-4" (click)="onNavigate(post.id, 'videos')">
+              <h1> {{ post.title }} </h1>
+            </div>
+            <div class="iframe-container">
+              <iframe width="853" height="480" [src]="sanitizeUrl(post.imgUrl)" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-desc" (click)="onNavigate(post.id, 'videos')">
+              <p class="lead"> {{ checkLength(post.description) }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="empty" class="row">
+        <div class="col-md-3 m-auto">
+          <span class="m-auto">No more posts ...</span>
+        </div>
+      </div>
+
+
+      <ngx-spinner bdOpacity=0.9 bdColor="" size="default" type="ball-pulse-sync" color="red" [fullScreen]=false>
+      </ngx-spinner>
+    </div>
+
+  </div>
+
+  <app-footer *ngIf="empty"></app-footer>
+
+</div>

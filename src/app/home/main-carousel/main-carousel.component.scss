@@ -1,0 +1,105 @@
+// =====================
+
+div.body {
+
+  @media (min-width: 992px) {
+    height: 249vh;
+  }
+  @media (max-width: 992px) {
+    height: 264vh
+  }
+  // @media (max-width: 992px) {
+  //   height: 430vh
+  // }
+
+  .container-fluid {
+    background-repeat: repeat-y;
+    background-size: contain;
+
+    -webkit-animation: bgImages 30s infinite;
+    animation: bgImages 30s infinite;
+    /* -webkit-animation-direction: alternate;
+    animation-direction: alternate; */
+    height: 170vh;
+
+      h1 {
+        color: white;
+        font-weight: 900;
+        font-size: 2.5em;
+      }
+
+
+    .col-md-3 .row {
+      color: aliceblue;
+    }
+
+
+    mat-card {
+      background-color: black;
+      // opacity: 0.8;
+      border: 1px solid red;
+      color: red;
+    }
+
+    mat-card-title {
+      font-weight: bold;
+    }
+
+    .desc-container {
+      height: fit-content;
+      width: auto;
+      border: 3px solid black;
+      border-radius: 3vw;
+
+      background: linear-gradient(blue, black) !important;
+
+      p {
+        font-weight: 400;
+      }
+    }
+
+    .carousel-side {
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    position: relative;
+    z-index: 1;
+  }
+
+  app-footer {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    z-index: 0;
+  }
+
+}
+
+
+@keyframes bgImages {
+  0% {
+    background:
+      url("../../../assets/stock_photos/stock_image5.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+
+  25% {
+    background:
+      url("../../../assets/stock_photos/stock_image2.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+
+  50% {
+    background:
+      url("../../../assets/stock_photos/stock_image7.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+
+  75% {
+    background:
+      url("../../../assets/stock_photos/stock_image8.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+
+  100% {
+    background:
+      url("../../../assets/stock_photos/stock_image5.jpg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  }
+}
