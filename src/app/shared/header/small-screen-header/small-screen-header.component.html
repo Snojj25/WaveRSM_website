@@ -1,0 +1,32 @@
+<!-- ================================= -->
+
+<div #hamBtn class="ham-btn" (click)="showNav()" (click)="changeState()">
+  <span></span>
+  <span></span>
+  <span></span>
+  <fa-icon [icon]="faTimes" size="2x"></fa-icon>
+</div>
+
+<div #fullNav [@openClose]='currentState' [activeId]="activeId" class="navigation">
+  <!-- <button > Click </button> -->
+  <div class="links">
+    <div class="link">
+      <a appHoverable class="active" [styles]="['hover-link']" href="#">Home</a>
+    </div>
+    <div class="link">
+      <a appHoverable [styles]="['hover-link']" [routerLink]="['/main-carousel']">Carousel</a>
+    </div>
+    <div class="link">
+      <a appHoverable [styles]="['hover-link']" [routerLink]="['/posts']">Posts</a>
+    </div>
+    <div class="link">
+      <a appHoverable [styles]="['hover-link']" [routerLink]="['/trades']">Trades</a>
+    </div>
+    <div *ngIf="!user" class="link">
+      <a appHoverable [styles]="['hover-link']"  [routerLink]="['/login']">Login</a>
+    </div>
+    <div *ngIf="!!user" class="link">
+      <a appHoverable [styles]="['hover-link']" (click)="logOut()"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+  </div>
+</div>

@@ -5,8 +5,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { map } from 'rxjs/operators';
 import { Post } from '../models/post.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import * as moment from 'moment';
-import { SettingsService } from '../services/settings.service';
 
 @Component({
   selector: 'app-posts',
@@ -23,7 +21,6 @@ export class PostsComponent implements OnInit {
   mode: string = 'photos';
   symbolFilter: string;
 
-  test;
 
   imgSrc = 'https://www.youtube.com/embed/v64KOxKVLVg';
 
@@ -115,9 +112,6 @@ export class PostsComponent implements OnInit {
       this.symbolFilter = '';
       this.loadInitPosts();
     }
-  }
-
-  onTest() {
   }
 
   onNavigate(id: string, mode: string) {

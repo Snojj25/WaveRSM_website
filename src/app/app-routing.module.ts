@@ -9,6 +9,7 @@ import { PostDetailComponent } from './posts/post-detail/post-detail.component';
 import { PostsComponent } from './posts/posts.component';
 import { TradeStatsComponent } from './trades/trade-stats/trade-stats.component';
 import { TradesComponent } from './trades/trades.component';
+import { CanReadGuard } from './guards/can-read.guard'
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'posts', component: PostsComponent },
-  { path: 'post-detail', component: PostDetailComponent },
+  { path: 'post-detail', component: PostDetailComponent, canActivate: [CanReadGuard] },
   { path: 'trades', component: TradesComponent },
   { path: 'trade-stats', component: TradeStatsComponent },
   { path: '**', redirectTo: 'home' },

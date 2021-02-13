@@ -7,12 +7,13 @@
     <!-- ?  ======================== -->
     <div class="row">
       <h1 class="mx-auto mb-4">LOGIN</h1>
-      <button class="btn btn-md btn-outline-warning m-1" (click)="onSwitchMode()">Switch mode</button>
+      <button class="btn btn-md btn-outline-warning m-1 switch-button" appHoverable [styles]="['hovered-button']"
+        (click)="onSwitchMode()">REGISTER</button>
     </div>
 
     <!-- !   FORM  ===================== -->
     <!-- EKSTRA HEIGHT -->
-    <div style="height: 5vh;"></div>
+    <div style="height: 10vh;"></div>
     <!-- EKSTRA HEIGHT -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
       <!--& First form input start -->

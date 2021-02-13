@@ -1,0 +1,33 @@
+// ===============
+
+ul.nav-pills {
+    li {
+      font-size: large;
+
+      i.fa {
+        color: rgb(200, 200, 200);
+      }
+
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+
+      i.fas {
+        color: rgb(200, 200, 200);
+      }
+    }
+
+    .nav-link.active {
+      background-color: blue;
+      // color: rgb(200, 200, 200);
+      color: white;
+      font-weight: bold;
+    }
+
+    a.nav-link {
+      color: rgb(200, 200, 200);
+    }
+
+  }

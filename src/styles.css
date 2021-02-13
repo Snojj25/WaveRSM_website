@@ -3,6 +3,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
   height: 100vh;
   background: linear-gradient(to right, red, green);
   background-repeat: repeat-y;
@@ -10,13 +13,15 @@ body {
   background-size: cover;
 
   -webkit-animation: bgimage 30s infinite !important;
-    animation: bgimage 30s infinite !important;
+  animation: bgimage 30s infinite !important;
     /* -webkit-animation-direction: alternate;
     animation-direction: alternate; */
+
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.707);
+  color: rgb(18, 2, 72);
 }
 
 div {

@@ -5,19 +5,23 @@
     <!-- ? Header -->
     <app-header [activeId]='0'></app-header>
     <!-- ? Header -->
-    <div class="first-card col-4 ml-auto">
+    <div class="first-card">
       <h1>Home Screen</h1>
-      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestiae quisquam quidem ut
+      <!--  *ngIf="authService.allowAdmin(user)" -->
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestiae quisquam quidem ut
         nihil,
         maiores nam quae, ipsam odio sint commodi</p>
     </div>
+    <div class="spacer"></div>
+    <div class="first-section-inner"></div>
   </div>
+
 
   <!-- & SECOND SECTION -->
   <div class="row second-section align-items-center">
-    <div class="second-card col-4 my-auto">
+    <div class="second-card">
       <h1>Home Screen</h1>
-      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestiae quisquam quidem ut
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestiae quisquam quidem ut
         nihil,
         maiores nam quae, ipsam odio sint commodi</p>
     </div>
@@ -25,9 +29,9 @@
 
   <!-- ! THIRD SECTION -->
   <div class="row third-section align-items-center justify-content-end">
-    <div class="third-card col-4 mr-5">
+    <div class="third-card">
       <h1>Home Screen</h1>
-      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestiae quisquam quidem ut
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestiae quisquam quidem ut
         nihil,
         maiores nam quae, ipsam odio sint commodi</p>
     </div>

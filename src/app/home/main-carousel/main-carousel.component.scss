@@ -43,6 +43,11 @@ div.body {
 
     mat-card-title {
       font-weight: bold;
+
+      ::selection {
+        background-color: red !important;
+        color: black;
+      }
     }
 
     .desc-container {
@@ -50,11 +55,18 @@ div.body {
       width: auto;
       border: 3px solid black;
       border-radius: 3vw;
+      padding: 3vh 1vw;
 
       background: linear-gradient(blue, black) !important;
 
       p {
         font-weight: 400;
+        font-size: 1.4rem; 
+      }
+
+      ::selection {
+        background-color: rgb(255, 255, 140);
+        color: blue;
       }
     }
 
@@ -72,6 +84,7 @@ div.body {
     position: fixed;
     bottom: 0px;
     z-index: 0;
+    width: 100vw;
   }
 
 }

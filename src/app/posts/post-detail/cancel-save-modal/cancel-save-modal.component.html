@@ -1,0 +1,46 @@
+<!-- ==== -->
+
+<ng-template #saveModalContent let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Save Changes</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want save these changes?</p>
+    </div>
+    <div class="modal-footer">
+      <button appHoverable [styles]="['cancel-hovered']" type="button" class="btn btn-md cancel-button"
+        (click)="modal.dismiss('Cross click')"> Cancel </button>
+      <button appHoverable [styles]="['save-hovered']" type="button" class="btn btn-md save-button"
+        (click)="saveModal()" (click)="modal.dismiss('Cross click')"> Save </button>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template #cancelModalContent let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Discard Changes</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to cancel, your changes will not be saved.</p>
+    </div>
+    <div class="modal-footer">
+      <button appHoverable [styles]="['cancel-hovered']" type="button" class="btn btn-md cancel-button"
+        (click)="stopEditting()" (click)="modal.dismiss('Cross click')"> Discard </button>
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="row button-row justify-content-center">
+  <button class="btn btn-lg cancel-button" (click)="openModal(cancelModalContent)">Cancel</button>
+  <button class="btn btn-lg save-button" (click)="openModal(saveModalContent)">Save</button>
+</div>

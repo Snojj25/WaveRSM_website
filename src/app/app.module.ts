@@ -6,7 +6,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -32,6 +32,9 @@ import { HomeScreenComponent } from './home/home-screen/home-screen.component';
 import { HoverableDirective } from './hoverable.directive';
 import { FooterComponent } from './shared/footer/footer.component';
 import { TradeStatsComponent } from './trades/trade-stats/trade-stats.component';
+import { SmallScreenHeaderComponent } from './shared/header/small-screen-header/small-screen-header.component';
+import { BigerScreenHeaderComponent } from './shared/header/biger-screen-header/biger-screen-header.component';
+import { CancelSaveModalComponent } from './posts/post-detail/cancel-save-modal/cancel-save-modal.component'
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { TradeStatsComponent } from './trades/trade-stats/trade-stats.component'
     HoverableDirective,
     FooterComponent,
     TradeStatsComponent,
+    SmallScreenHeaderComponent,
+    BigerScreenHeaderComponent,
+    CancelSaveModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +75,7 @@ import { TradeStatsComponent } from './trades/trade-stats/trade-stats.component'
     NgxChartsModule,
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [NgbActiveModal],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

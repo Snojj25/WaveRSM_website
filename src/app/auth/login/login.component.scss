@@ -10,6 +10,21 @@ div.page {
       font-family: "AlfaSlabOne", Arial, Helvetica, sans-serif;
     }
 
+    .switch-button {
+      background-color: rgba(0,0,0, 0.4);
+      border: 2px solid rgb(200, 255, 255);
+      border-radius: 100%;
+      color: rgb(200, 255, 255);
+      font-weight: 700;
+      font-size: larger;
+      padding: 15px;
+    }
+
+    .hovered-button {
+      background-color:rgb(200, 255, 255);
+      color: black;
+    }
+
     form {
       .prepend {
         background-color: black;

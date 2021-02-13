@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import * as moment from 'moment';
 import { Observable, throwError } from 'rxjs';
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import { catchError, map, take } from 'rxjs/operators';
 
 import { Post } from '../models/post.model';
 import { User } from '../models/user.model';
 import { Trade } from '../models/trade.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataBaseService {
-  constructor(private afs: AngularFirestore) {}
+  constructor(
+    private afs: AngularFirestore,
+    private authService: AuthService
+  ) {}
+
+  userId: string;
 
   private photoPostsCollection = this.afs
     .collection('posts')
@@ -79,7 +84,50 @@ export class DataBaseService {
       );
   }
 
-  //& USER DATA ======================
+  //? UPDATE POST
+  updatePost(id: string, data: any, mode: String): Promise<void> {
+    if (mode == 'photos') {
+      return this.photoPostsCollection
+        .doc(id)
+        .update(data)
+        .catch((err) => {
+          console.log('update photo post error: ' + err);
+          throw Error(err);
+        });
+    } else {
+      return this.videoPostsCollection
+        .doc(id)
+        .update(data)
+        .catch((err) => {
+          console.log('update video post error: ' + err);
+          throw Error(err);
+        });
+    }
+  }
+
+  //? UPDATE POST
+  deletePost(id: string, mode: String) {
+    if (mode == 'photos') {
+      return this.photoPostsCollection
+        .doc(id)
+        .delete()
+        .catch((err) => {
+          console.log('delete photo post error: ' + err);
+          throw Error(err);
+        });
+    } else {
+      return this.videoPostsCollection
+        .doc(id)
+        .delete()
+        .catch((err) => {
+          console.log('delete video post error: ' + err);
+          throw Error(err);
+        });
+    }
+  }
+
+  //& USER DATA ======================================
+  //& ================================================
 
   updateUser(user: User, data: any) {
     return this.afs
@@ -87,25 +135,31 @@ export class DataBaseService {
       .update(data)
       .catch((err) => {
         console.log(err);
+        throw Error(err);
       });
   }
 
-  getUserData(uid: string) {
+  getUserData(uid: string): Observable<User> {
     return this.afs
-      .doc('users/' + uid)
-      .valueChanges()
-      .pipe(
-        take(1),
-        map((user) => {
-          const userData = new User(
-            user['uid'],
-            user['name'],
-            user['email'],
-            user['password']
+          .doc('users/' + uid)
+          .valueChanges()
+          .pipe(
+            take(1),
+            map((user) => {
+              const userData = new User(
+                user['uid'],
+                user['name'],
+                user['email'],
+                user['password'],
+                user['roles']
+              );
+              return userData;
+            }),
+            catchError((err) => {
+              console.log('error in get User Data: ' + err);
+              throw err;
+            })
           );
-          return userData;
-        })
-      );
   }
 
   // ! TRADES ============================================================================
@@ -130,16 +184,10 @@ export class DataBaseService {
             const trade = new Trade(
               responseData[key].payload.doc.data()['symbol'],
               responseData[key].payload.doc.data()['tradeType'],
-              +responseData[key].payload.doc
-                .data()
-                ['entry'].toFixed(5),
-              +responseData[key].payload.doc.data()['exit'].toFixed(5) ,
-              +responseData[key].payload.doc
-                .data()
-                ['lotSize'].toFixed(2),
-              +responseData[key].payload.doc
-                .data()
-                ['profit'].toFixed(2),
+              +responseData[key].payload.doc.data()['entry'].toFixed(5),
+              +responseData[key].payload.doc.data()['exit'].toFixed(5),
+              +responseData[key].payload.doc.data()['lotSize'].toFixed(2),
+              +responseData[key].payload.doc.data()['profit'].toFixed(2),
               newDate
             );
             tradesArray.push(trade);

@@ -7,7 +7,8 @@
     <!-- ? ===========  TITLE  =========================-->
     <div class="row">
       <h1 class="mx-auto mb-4 text-danger">REGISTER</h1>
-      <button class="btn btn-md btn-outline-warning" (click)="onSwitchMode()">Switch mode</button>
+      <button class="btn btn-md switch-button" appHoverable [styles]="['hovered-button']" (click)="onSwitchMode()">LOG IN</button>
+      <!-- <button class="btn btn-md btn-outline-warning" (click)="onStep2()">Step 2</button> -->
     </div>
 
     <!-- !    FORM =============== -->
@@ -82,7 +83,7 @@
         <!-- * Third form input end -->
       </div>
       <!-- todo  passwords -->
-      <button (click)="onGoogleSignIn()">Google login</button>
+      <!-- <button (click)="onGoogleSignIn()">Google login</button> -->
       <button [disabled]="!signupForm.valid" (mouseover)="hover=true" (mouseleave)="hover=false"
         [ngStyle]="{backgroundColor: hover ? 'black' : 'rgba(0, 0, 0, 0.5)', color: hover ? 'rgb(255, 255, 140)' : 'rgba(255, 255, 140, 0.5)', textDecoration: !signupForm.valid ? 'line-through' : 'none'}"
         class="btn btn-block btn-lg mb-5" type="submit">Login</button>

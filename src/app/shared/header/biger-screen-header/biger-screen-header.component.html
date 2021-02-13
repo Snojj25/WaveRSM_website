@@ -1,0 +1,20 @@
+<!-- ================= -->
+
+<ul #navUl ngbNav #nav="ngbNav" [activeId]="activeId" class="nav-pills justify-content-end ml-auto">
+    <li class="mx-2" [ngbNavItem]="0" [routerLink]="['/home']">
+      <a ngbNavLink> HOME </a>
+    </li>
+    <li class="mx-2" [ngbNavItem]="1" [routerLink]="['/main-carousel']">
+      <a ngbNavLink> ACTIVE </a>
+    </li>
+    <li class="mx-2" [ngbNavItem]="2" [routerLink]="['/posts']">
+      <a ngbNavLink> POSTS </a>
+    </li>
+    <li class="mx-2" [ngbNavItem]="3" [routerLink]="['/trades']">
+      <a ngbNavLink> TRADES </a>
+    </li>
+    <li class="mx-2" *ngIf="!user" [ngbNavItem]="4" [routerLink]="['/login']">
+      <a ngbNavLink> LOGIN </a>
+    </li>
+    <button class="mx-2" *ngIf="!!user" (click)="logOut()"><i class="fas fa-sign-out-alt"></i></button>
+  </ul>

@@ -84,6 +84,13 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  onStep2() {
+    console.log("clicked 123")
+    this.router.navigate(['register2']).catch((err) => {
+      console.log(err);
+    });
+  }
+
   onSignUp() {
     console.log(this.signupForm);
     this.authService

@@ -1,13 +1,13 @@
-
-
 div.body {
 
   @media (min-width: 992px) {
     height: 410vh;
   }
+
   @media (max-width: 992px) {
     height: 425vh
   }
+
   // @media (max-width: 992px) {
   //   height: 430vh
   // }
@@ -21,19 +21,52 @@ div.body {
     height: 100vh;
     // width: 100vw;
 
-    background-image: url("../../../assets/stock_photos/stock_image1.jpg");
+    background-image: url("../../../assets/stock_photos/stock_image1_new1.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+
+    ::selection {
+      background-color: rgb(41, 41, 41);
+      color: aquamarine;
+    }
 
     .first-card {
       color: aqua;
-      // margin-bottom: 100vh;
+      position: absolute;
+      bottom: 7vh;
+      right: 30px;
+      z-index: 3;
+      border: 2px solid aqua;
+      width: 40vw;
+      padding: 1vh;
+
+      h1 {
+        font-weight: 500;
+      }
+      p {
+        font-weight: 400;
+        font-size: 1.2em;
+      }
     }
 
-    position: relative;
-    z-index: 1;
+    .spacer {
+      height: 35%;
+    }
+
+    .first-section-inner {
+      height: 50%;
+      background: linear-gradient(to right bottom, rgba(0,0,0,0.1),rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+      z-index: 2;
+
+      clip-path: polygon(100% 2%, 0% 100%, 100% 100%);
+    }
   }
+
+
+
 
   // & SECOND SECTION
   .second-section {
@@ -46,12 +79,29 @@ div.body {
     background-repeat: no-repeat;
 
     .second-card {
+      margin-left: 2vw;
       color: aqua;
-      // margin-bottom: 100vh;
+      border: 2px solid aqua;
+      z-index: 3;
+      width: 30vw;
+      padding: 1vh;
+
+      h1 {
+        font-weight: 500;
+      }
+      p {
+        font-weight: 400;
+        font-size: 1.2em;
+      }
     }
 
     position: relative;
     z-index: 1;
+
+    ::selection {
+      background-color: rgba(21, 13, 248, 0.925);
+      color: aquamarine;
+    }
   }
 
   // ! THIRD SECTION
@@ -66,17 +116,39 @@ div.body {
 
     .third-card {
       color: aqua;
+      border: 2px solid aqua;
+      z-index: 3;
+      width: 35vw;
+      padding: 1vh;
+      position: absolute;
+      top: auto;
+      right: 4vw;
+
+      h1 {
+        font-weight: 500;
+      }
+      p {
+        font-weight: 400;
+        font-size: 1.2em;
+      }
     }
 
     margin: 0 auto;
     position: relative;
     z-index: 1;
+
+    ::selection {
+      background-color: rgb(35, 50, 48);
+      color: aquamarine;
+    }
   }
 
   app-footer {
     overflow: hidden;
     position: fixed;
     bottom: 0px;
+    z-index: 0;
+    width: 100vw;
   }
 
 }

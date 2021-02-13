@@ -1,5 +1,5 @@
 <!--  )===========================================( -->
-<div class="body">
+<div class="body" (window:resize)="onResize($event)">
 
   <div *ngIf="post" class="container-fluid pt-5">
 
@@ -7,19 +7,29 @@
 
     <!-- !  TITLE ==================== -->
     <div style="height: 5vh;"></div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-around">
+      <div *ngIf="authService.allowEditor(user)"></div>
       <h1 class="display-2"> POST DETAILS </h1>
+      <div *ngIf="authService.allowEditor(user)">
+        <button *ngIf="authService.allowEditor(user)" (click)="editting = !editting" class="btn btn-md btn-primary m-2">
+          Edit <i class="fas fa-edit"></i> </button>
+        <button *ngIf="authService.allowAdmin(user)" class="btn btn-md btn-danger m-2"
+          (click)="openModal(deleteModalContent)"> Delete <i class="fas fa-trash-alt"></i> </button>
+      </div>
+
     </div>
     <div style="height: 7vh;"></div>
     <!-- !  TITLE ==================== -->
 
 
     <div class="row">
-      <!-- ? First Column ========== -->
+      <!-- ? First Column IMAGE ========== -->
       <div class="col-lg-9 post-detail-container">
         <div class="post-border">
           <div class="row px-3">
-            <h1 class="mr-auto"> {{ post.title }} </h1>
+            <h1 *ngIf="!editting" class="mr-auto"> {{ post.title }} </h1>
+            <input *ngIf="editting" id="title" name="title" class="form-control" required [(ngModel)]="titleText"
+              #title="ngModel">
             <p class="dateTime"> Published {{ post.dateTime }}</p>
           </div>
           <img *ngIf="mode=='photos'" src="{{ post.imgUrl }}" alt="img" class="w-100">
@@ -28,14 +38,16 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
           </div>
-          <p class="py-4 px-4 desc"> {{ post.description }} </p>
+          <p *ngIf="!editting" class="py-4 px-4 desc"> {{ post.description }} </p>
+          <textarea *ngIf="editting" id="desc" name="desc" class="form-control" required [(ngModel)]="descText"
+            #desc="ngModel"></textarea>
         </div>
       </div>
-      <!-- ? First Column ========== -->
+      <!-- ? First Column IMAGE ========== -->
 
-      <!-- * Second Column  COMMENTS============ -->
-      <div class="col-lg-3 my-3 p-3 comments-container">
-        <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300" (scrolled)="onScrolled()"></div>
+      <!-- * Second Column COMMENTS ============ -->
+      <!-- * vertical -->
+      <div *ngIf="srcWidth > 992" class="col-lg-3 my-3 p-3 comments-container-vertical">
         <h1>Comments</h1>
         <div class="form-group">
           <label for="exampleInputEmail1">Add Comment</label>
@@ -44,20 +56,60 @@
         <div *ngFor="let num of [1,2,3,4,5,6,7,8,9,10,11,12,13]" class="row comment justify-content-start border my-2">
           <div class="row w-100 justify-content-around">
             <h4 class="my-0"> Author </h4>
-            <span class="">Text</span>
+            <span class="">Date</span>
           </div>
-
           <p class="comment-text"> This is a comment, just a random test version</p>
         </div>
       </div>
+      <!-- * Horizontal -->
+      <div *ngIf="srcWidth <= 992" class="my-3 p-3 comments-container-horizontal">
+        <!-- =========== -->
+        <!-- <div class="row header-row">
+          <h1>Comments</h1>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Add Comment</label>
+            <input type="email" class="form-control" id="exampleInputEmail1">
+          </div>
+        </div> -->
+        <!-- =========== -->
+        <div *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]" class="comment border my-2">
+          <div class="comment-header">
+            <h4 class="my-0"> Author </h4>
+            <h5 class="">Date</h5>
+          </div>
+          <div class="comment-body">
+            <h5> This is a comment, just a random test version</h5>
+          </div>
+        </div>
+      </div>
       <!-- * Second Column  COMMENTS============ -->
+
+      <app-cancel-save-modal (updatePost)="onUpdatePost()" (editting)=stopEditting() *ngIf="editting"></app-cancel-save-modal>
+
     </div>
-
-    <div style="height: 10vh;"></div>
-
   </div>
 
   <app-footer></app-footer>
 
 
 </div>
+
+<ng-template #deleteModalContent let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Delete post</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete this post permanently? </p>
+    </div>
+    <div class="modal-footer">
+      <button appHoverable [styles]="['cancel-hovered']" type="button" class="btn btn-md cancel-button"
+        (click)="modal.dismiss('Cross click')"> Cancel </button>
+      <button appHoverable [styles]="['delete-hovered']" type="button" class="btn btn-md delete-button"
+        (click)="onDeletePost()"> Delete </button>
+    </div>
+  </div>
+</ng-template>

@@ -1,9 +1,21 @@
 div.body {
 
-  height: 270vh;
+  @media (min-width: 992px) {
+    height: 290vh;
+  }
+
+  @media (max-width: 992px) {
+    height: 330vh
+  }
 
   div.container-fluid {
-    height: 190vh;
+    @media (min-width: 992px) {
+      height: 211vh;
+    }
+
+    // @media (max-width: 992px) {
+    //   height: 250vh
+    // }
 
     background-repeat: repeat-y;
     background-size: contain;
@@ -43,6 +55,26 @@ div.body {
           margin-left: 2em;
         }
 
+        input {
+          width: fit-content;
+          margin-right: auto;
+          margin-left: 3vw;
+          background: rgba(255, 255, 255, 0.5);
+          color: blue;
+          font-size: 1.7em;
+          font-weight: 700;
+          border-radius: 5%;
+        }
+
+        textarea {
+          height: 30vh;
+          background: rgba(255, 255, 255, 0.5);
+          color: blue;
+          font-size: 1.3em;
+          font-weight: 500;
+          border-radius: 5%;
+        }
+
         .iframe-container {
           position: relative;
           width: 100%;
@@ -75,7 +107,7 @@ div.body {
 
     }
 
-    .comments-container {
+    .comments-container-vertical {
       height: 100vh;
       overflow-y: auto;
 
@@ -104,15 +136,86 @@ div.body {
           color: whitesmoke;
         }
       }
+    }
+
+    .comments-container-horizontal {
+
+      background-color: rgba(30, 30, 30, 0.9);
+
+      border: 0.3em solid black;
+      border-radius: 1em;
+
+      max-height: 40vh;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      div.comment {
+        min-width: 25vw;
+        height: 30vh;
+        line-height: 30vh;
+        text-align: center;
+        margin: 0 1vw;
+
+        background-color: rgba(70, 70, 70, 0.95);
+
+        .comment-header {
+          position: relative;
+          display: block;
+          width: 100%;
+          height: 30%;
 
 
+          h4 {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            color: lightblue;
+            font-weight: bold;
+            width: min-content;
+          }
+
+          h5 {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: fit-content;
+            color: whitesmoke;
+            font-weight: 300;
+            font-size: small;
+          }
+        }
+
+        .comment-body {
+          // overflow-y: scroll;
+          height: 70%;
+
+          // ::-webkit-scrollbar{
+          //   display: none !important;
+          // }
+
+          h5 {
+            max-height: 100%;
+            font-size: smaller;
+          }
+        }
+
+
+
+        label {
+          color: whitesmoke;
+        }
+      }
+    }
+
+    app-cancel-save-modal {
+      width: 100%;
     }
 
     padding-bottom: 5%;
 
     position: relative;
     z-index: 1;
-
   }
 
   app-footer {
@@ -120,8 +223,56 @@ div.body {
     position: fixed;
     bottom: 0px;
     z-index: 0;
+    width: 100vw;
   }
 
+}
+
+
+.modal-content {
+  border: none;
+  background: linear-gradient(to right, rgb(0, 0, 179), rgb(1, 18, 79));
+  color: aliceblue;
+
+  .modal-header {
+    border: none;
+    border-bottom: 0.7px solid black;
+
+    button {
+      border: none;
+      color: aliceblue;
+    }
+  }
+
+  .modal-body {
+    border: none;
+  }
+
+  .modal-footer {
+    border: none;
+
+    .cancel-button {
+      border: 2px solid rgb(137, 137, 137);
+      background-color: transparent;
+      color: rgb(137, 137, 137);
+    }
+
+    .delete-button {
+      border: 2px solid rgb(250, 0, 0);
+      background-color: transparent;
+      color: rgb(255, 0, 0);
+    }
+
+    .cancel-hovered {
+      background-color: rgb(137, 137, 137);
+      color: whitesmoke;
+    }
+
+    .delete-hovered {
+      background-color: rgb(255, 0, 0);
+      color: whitesmoke;
+    }
+  }
 }
 
 
